@@ -1,15 +1,7 @@
 # spy-fall
-Creating a version of the Spyfall game using TypeScript, React, and Socket.io
+Creating a version of the Spyfall game using Gatsby and Socket.io
 
 This project is not complete and is not stable.
-
-## Libraries
-
-- TypeScript
-- React
-- Reach Router
-- Webpack
-- Socket.io
 
 ## Run
 
@@ -24,4 +16,4 @@ Client:
 
     $ cd client
     $ npm install
-    $ npm start
+    $ npm run develop
