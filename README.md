@@ -16,4 +16,4 @@ Client:
 
     $ cd client
     $ npm install
-    $ npm run develop
+    $ gatbsy develop --open
