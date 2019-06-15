@@ -1,7 +1,7 @@
 import * as io from 'socket.io-client';
 
 //export const socket = io(`ws://${window.location.hostname}:8081`);
-const protocol = window.location.protocol === 'https:' ? 'wss' : 'ws';
+const protocol = typeof window !== 'undefined' && window.location.protocol === 'https:' ? 'wss' : 'ws';
 //export const socket = io(`${protocol}://spyfallserver.azurewebsites.net`);
 export const socket = io(`ws://localhost:8081`);
 
