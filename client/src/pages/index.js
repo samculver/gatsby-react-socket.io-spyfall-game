@@ -1,7 +1,7 @@
 import React from "react"
 import { navigate } from "gatsby"
 import styles from "../styles.module.scss"
-import logo from "../images/spy-logo2.svg"
+import logo from "../images/spy-logo.svg"
 import Layout from "../components/layout"
 import Header from "../components/header"
 import Button from "@material-ui/core/Button"
