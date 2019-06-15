@@ -15,6 +15,7 @@ const Join = () => (
       className={styles.textField}
       margin="normal"
       variant="outlined"
+      autoComplete="off"
     />
     <br />
     <TextField
@@ -23,6 +24,7 @@ const Join = () => (
       className={styles.textField}
       margin="normal"
       variant="outlined"
+      autoComplete="off"
     />
     <br />
     <Button
