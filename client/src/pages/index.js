@@ -1,5 +1,5 @@
 import React from "react"
-import { navigate } from "gatsby"
+import { navigate, Link } from "gatsby"
 import styles from "../styles.module.scss"
 import logo from "../images/spy-logo.svg"
 import Layout from "../components/layout"
@@ -26,6 +26,9 @@ const Home = () => (
     >
       Join game
     </Button>
+    <p>
+      <Link to="/rules">How to play</Link>
+    </p>
   </Layout>
 )
 

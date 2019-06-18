@@ -2,6 +2,15 @@ html {
   background-color: #0e264c;
 }
 
+a, a:visited{
+  color: rgba(156, 39, 176, 1);
+  text-decoration: none;
+
+  &:hover{
+    text-decoration: underline;
+  }
+}
+
 .app {
   font-family: roboto;
   text-align: center;

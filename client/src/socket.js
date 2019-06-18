@@ -1,9 +1,9 @@
 import * as io from 'socket.io-client';
 
-//export const socket = io(`ws://${window.location.hostname}:8081`);
+let activeEnv = process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
 const protocol = typeof window !== 'undefined' && window.location.protocol === 'https:' ? 'wss' : 'ws';
-//export const socket = io(`${protocol}://spyfallserver.azurewebsites.net`);
-export const socket = io(`ws://localhost:8081`);
+const socketServer = activeEnv === 'development' ? 'localhost:8081' : 'spyfallserver.azurewebsites.net';
+export const socket = io(`${protocol}://${socketServer}`);
 
 let latestVersion = 0;
 
