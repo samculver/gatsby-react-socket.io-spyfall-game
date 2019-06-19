@@ -1,4 +1,4 @@
-import React, { useContext } from "react"
+import React from "react"
 import { navigate } from "gatsby"
 import styles from "../styles.module.scss"
 
@@ -6,10 +6,9 @@ import Layout from "../components/layout"
 import Header from "../components/header"
 import Button from "@material-ui/core/Button"
 import TextField from "@material-ui/core/TextField"
-import GameContext from "../context/gameContext"
 
 const Create = () => {
-  const { setNick, setGameCode } = useContext(GameContext)
+
   let nameInput = React.createRef()
 
   const createGame = () => {
