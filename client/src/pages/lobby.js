@@ -1,12 +1,10 @@
 import React from "react"
 import { navigate } from "gatsby"
 import styles from "../styles.module.scss"
-import GameContext from "../context/gameContext"
 import Layout from "../components/layout"
 import Button from "@material-ui/core/Button"
 
 class Lobby extends React.Component {
-  static contextType = GameContext
 
   state = {
     users: [],
@@ -16,7 +14,7 @@ class Lobby extends React.Component {
     return (
       <Layout>
         <h2>Waiting for players</h2>
-        <h3>{`Access code: ${this.context.gameCode}`}</h3>
+        <h3>{`Access code: `}</h3>
         <div className={styles.playersList}>
           <h3>Players:</h3>
           <ul>
