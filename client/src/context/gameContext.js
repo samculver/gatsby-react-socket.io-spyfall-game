@@ -20,6 +20,7 @@ class GameProvider extends React.Component {
   }
 
   setUser = (user) => {
+    console.log(`user set! ${user}`)
     this.setState({ user })
   }
 
