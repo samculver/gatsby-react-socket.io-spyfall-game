@@ -1,5 +1,5 @@
 import React from "react"
-import { socket } from '../socket'
+//import { socket } from '../socket'
 
 const defaultState = {
   user: null,
@@ -33,11 +33,13 @@ class GameProvider extends React.Component {
 
   componentDidMount() {
     
+    /*
     socket.emit('identify', localStorage.getItem('token'), (user) => {
         console.log('identified', user);
         localStorage.setItem('token', user.token);
         this.setState({ user });
     });
+    */
     
   }
 
