@@ -14,14 +14,7 @@ const Create = () => {
 
   const createGame = () => {
     const nick = nameInput.current.value
-    socket.emit("create nick", nick, () => {
-      console.log(`created nickname: ${nick}`)
-      socket.emit("create game", code => {
-        console.log(`game code created: ${code}`)
-        setGameCode(code);
-        navigate("/lobby/")
-      })
-    })
+    
   }
 
   return (
