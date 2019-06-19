@@ -1,4 +1,5 @@
 import React from "react"
+import { socket } from '../socket'
 
 const defaultState = {
   user: null,
@@ -29,7 +30,6 @@ class GameProvider extends React.Component {
   setNick = (nick) => {
     this.setState({ nick })
   }
-
 
   render() {
     const { children } = this.props
