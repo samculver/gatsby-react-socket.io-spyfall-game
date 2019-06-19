@@ -1,7 +1,7 @@
 import React, { useContext } from "react"
 import { navigate } from "gatsby"
 import styles from "../styles.module.scss"
-import { socket } from "../socket"
+
 import Layout from "../components/layout"
 import Header from "../components/header"
 import Button from "@material-ui/core/Button"
