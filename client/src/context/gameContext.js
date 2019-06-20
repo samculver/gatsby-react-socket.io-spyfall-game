@@ -9,6 +9,7 @@ const defaultState = {
   setUser: () => {},
   setGameCode: () => {},
   setNick: () => {},
+  socket: () => {}
 }
 
 // create our context
@@ -58,6 +59,7 @@ class GameProvider extends React.Component {
           setUser: this.setUser,
           setGameCode: this.setGameCode,
           setNick: this.setNick,
+          socket: io(`ws://localhost:8081`)
         }}
       >
         {children}
