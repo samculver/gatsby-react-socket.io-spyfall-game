@@ -43,11 +43,6 @@ class GameProvider extends React.Component {
     });
     */
 
-    socket.emit("identify", {}, user => {
-      console.log("identified", user)
-      //localStorage.setItem("token", user.token)
-      //this.setState({ user })
-    })
   }
 
   render() {
