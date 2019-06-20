@@ -21,6 +21,7 @@ class GameProvider extends React.Component {
     user: null,
     gameCode: null,
     nick: null,
+    socket: io(`ws://localhost:8081`)
   }
 
   setUser = user => {
@@ -37,19 +38,24 @@ class GameProvider extends React.Component {
   }
 
   componentDidMount() {
-    /*
+
+    const { socket } = this.state;
+    
+    socket.emit('get version', (version) => {
+      console.log('running version:', version ? version : 0);
+    });
+
     socket.emit('identify', localStorage.getItem('token'), (user) => {
         console.log('identified', user);
         localStorage.setItem('token', user.token);
         this.setState({ user });
     });
-    */
 
   }
 
   render() {
     const { children } = this.props
-    const { user, gameCode, nick } = this.state
+    const { user, gameCode, nick, socket } = this.state
     return (
       <GameContext.Provider
         value={{
@@ -59,7 +65,7 @@ class GameProvider extends React.Component {
           setUser: this.setUser,
           setGameCode: this.setGameCode,
           setNick: this.setNick,
-          socket: io(`ws://localhost:8081`)
+          socket: socket
         }}
       >
         {children}
