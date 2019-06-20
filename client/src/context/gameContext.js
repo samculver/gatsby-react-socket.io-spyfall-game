@@ -1,5 +1,6 @@
 import React from "react"
-import { socket } from '../socket'
+//import { socket } from '../socket'
+import * as io from 'socket.io-client';
 
 const defaultState = {
   user: null,
