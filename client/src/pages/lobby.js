@@ -12,21 +12,31 @@ class Lobby extends React.Component {
     users: [],
   }
 
+  componentDidMount() {
+    const { socket, gameCode } = this.context
+    socket.emit("join", gameCode, users => {
+      console.log("joined!")
+      this.setState({ users })
+
+      socket.on("user joined", this.userJoined)
+      socket.on("user left", this.userLeft)
+    })
+  }
+
   render() {
+    const { users } = this.state
     return (
       <Layout>
         <h2>Waiting for players</h2>
         <h3>{`Access code: ${this.context.gameCode}`}</h3>
         <div className={styles.playersList}>
           <h3>Players:</h3>
-          <ul>
-            <li>Player 1</li>
-            <li>Player 2</li>
-            <li>Player 3</li>
-          </ul>
+          {users.map((user, i) => (
+            <li key={i}>{user.nick}</li>
+          ))}
         </div>
         <Button
-          onClick={() => navigate("/play/")}
+          onClick={this.startGame}
           variant="outlined"
           color="primary"
           className={styles.button}
@@ -43,6 +53,20 @@ class Lobby extends React.Component {
         </Button>
       </Layout>
     )
+  }
+
+  userJoined = joiner => {
+    this.setState({ users: [...this.state.users, joiner] })
+  }
+
+  userLeft = leaver => {
+    this.setState({
+      users: this.state.users.filter(user => user.token !== leaver.token),
+    })
+  }
+
+  startGame = () => {
+    this.context.socket.emit("start game")
   }
 }
 

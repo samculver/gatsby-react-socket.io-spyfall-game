@@ -1,6 +1,6 @@
 import React from "react"
-//import { socket } from '../socket'
 import * as io from 'socket.io-client';
+import { navigate } from "gatsby"
 
 const defaultState = {
   user: null,
@@ -50,6 +50,8 @@ class GameProvider extends React.Component {
         localStorage.setItem('token', user.token);
         this.setState({ user });
     });
+
+    socket.on('game start', () => navigate('/play'));
 
   }
 
