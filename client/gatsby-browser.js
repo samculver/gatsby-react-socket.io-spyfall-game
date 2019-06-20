@@ -8,8 +8,8 @@ export const wrapRootElement = ({ element }) => (
 
 export const onClientEntry = () => {
 
-  const { setUser } = useContext(GameContext)
-
+  //const { setUser } = useContext(GameContext)
+/*
   console.log("Starting socket connection")
   const socket = io(`ws://localhost:8081`)
 
@@ -23,6 +23,7 @@ export const onClientEntry = () => {
   socket.emit("identify", localStorage.getItem("token"), user => {
     console.log("identified", user)
     localStorage.setItem("token", user.token)
-    setUser(user)
+    //setUser(user)
   })
+  */
 }

@@ -1,5 +1,5 @@
 import React from "react"
-//import { socket } from '../socket'
+import { socket } from '../socket'
 
 const defaultState = {
   user: null,
@@ -7,33 +7,34 @@ const defaultState = {
   nick: null,
   setUser: () => {},
   setGameCode: () => {},
-  setNick: () => {}
+  setNick: () => {},
 }
 
+// create our context
 const GameContext = React.createContext(defaultState)
 
+// also create a provider to wrap around the root element
 class GameProvider extends React.Component {
   state = {
     user: null,
     gameCode: null,
-    nick: null
+    nick: null,
   }
 
-  setUser = (user) => {
+  setUser = user => {
     console.log(`user set! ${user}`)
     this.setState({ user })
   }
 
-  setGameCode = (gameCode) => {
+  setGameCode = gameCode => {
     this.setState({ gameCode })
   }
 
-  setNick = (nick) => {
+  setNick = nick => {
     this.setState({ nick })
   }
 
   componentDidMount() {
-    
     /*
     socket.emit('identify', localStorage.getItem('token'), (user) => {
         console.log('identified', user);
@@ -41,7 +42,12 @@ class GameProvider extends React.Component {
         this.setState({ user });
     });
     */
-    
+
+    socket.emit("identify", {}, user => {
+      console.log("identified", user)
+      //localStorage.setItem("token", user.token)
+      //this.setState({ user })
+    })
   }
 
   render() {
@@ -55,7 +61,7 @@ class GameProvider extends React.Component {
           nick,
           setUser: this.setUser,
           setGameCode: this.setGameCode,
-          setNick: this.setNick
+          setNick: this.setNick,
         }}
       >
         {children}
