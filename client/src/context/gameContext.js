@@ -1,5 +1,5 @@
 import React from "react"
-import * as io from 'socket.io-client';
+import * as io from "socket.io-client"
 import { navigate } from "gatsby"
 
 const defaultState = {
@@ -9,7 +9,7 @@ const defaultState = {
   setUser: () => {},
   setGameCode: () => {},
   setNick: () => {},
-  socket: () => {}
+  socket: () => {},
 }
 
 // create our context
@@ -17,11 +17,27 @@ const GameContext = React.createContext(defaultState)
 
 // also create a provider to wrap around the root element
 class GameProvider extends React.Component {
-  state = {
-    user: null,
-    gameCode: null,
-    nick: null,
-    socket: io(`ws://localhost:8081`)
+  constructor(props) {
+    super(props)
+
+    let activeEnv =
+      process.env.GATSBY_ACTIVE_ENV || process.env.NODE_ENV || "development"
+    const protocol =
+      typeof window !== "undefined" && window.location.protocol === "https:"
+        ? "wss"
+        : "ws"
+    const socketServer =
+      activeEnv === "development"
+        ? "localhost:8081"
+        : "spyfallserver.azurewebsites.net"
+    const socket = io(`${protocol}://${socketServer}`)
+
+    this.state = {
+      user: null,
+      gameCode: null,
+      nick: null,
+      socket: socket,
+    }
   }
 
   setUser = user => {
@@ -38,21 +54,19 @@ class GameProvider extends React.Component {
   }
 
   componentDidMount() {
+    const { socket } = this.state
 
-    const { socket } = this.state;
-    
-    socket.emit('get version', (version) => {
-      console.log('running version:', version ? version : 0);
-    });
+    socket.emit("get version", version => {
+      console.log("running version:", version ? version : 0)
+    })
 
-    socket.emit('identify', localStorage.getItem('token'), (user) => {
-        console.log('identified', user);
-        localStorage.setItem('token', user.token);
-        this.setState({ user });
-    });
+    socket.emit("identify", localStorage.getItem("token"), user => {
+      console.log("identified", user)
+      localStorage.setItem("token", user.token)
+      this.setState({ user })
+    })
 
-    socket.on('game start', () => navigate('/play'));
-
+    socket.on("game start", () => navigate("/play"))
   }
 
   render() {
@@ -67,7 +81,7 @@ class GameProvider extends React.Component {
           setUser: this.setUser,
           setGameCode: this.setGameCode,
           setNick: this.setNick,
-          socket: socket
+          socket: socket,
         }}
       >
         {children}
