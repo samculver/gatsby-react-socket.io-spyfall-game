@@ -5,7 +5,7 @@ import * as Shared from './SharedTypes';
 import * as Users from './model/user';
 
 const port = process.env.PORT || 8081;
-const server = socketio.listen(port);
+const server = socketio.listen(port, {transports: ['websocket']});
 console.log(`Listening on ${port}`);
 
 const latestVersion = Date.now();
