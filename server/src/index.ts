@@ -4,7 +4,8 @@ import * as Games from './model/game';
 import * as Shared from './SharedTypes';
 import * as Users from './model/user';
 
-const port = process.env.PORT || 8081;
+//const port = process.env.PORT || 8081;
+const port = 3000;
 const server = socketio.listen(port, {transports: ['websocket']});
 console.log(`Listening on ${port}`);
 
