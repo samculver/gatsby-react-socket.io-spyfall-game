@@ -28,8 +28,9 @@ class GameProvider extends React.Component {
         : "ws"
     const socketServer =
       activeEnv === "development"
-        ? "localhost:8081"
-        : "spyfallserver.azurewebsites.net"
+        ? "localhost:3000"
+        //: "spyfallserver.azurewebsites.net"
+        : "ec2-3-16-14-206.us-east-2.compute.amazonaws.com:3000"
     const socket = io(`${protocol}://${socketServer}`, {transports: ['websocket'], upgrade: false})
 
     this.state = {
