@@ -1,5 +1,6 @@
 import { Model } from "../model";
 import { User } from "./user";
+import { locations } from "./locations";
 import shortid from 'shortid';
 
 export interface Game {
@@ -37,18 +38,25 @@ export function join(gameCode: string, user: User) {
 
 export function setupGame(gameCode: string) {
 
-  const players = users[gameCode];
-  const spy = players[Math.floor(Math.random() * players.length)];
-  // set location for this game session
-  gameSettings[gameCode] = gameSettings[gameCode] || {
-    location: 'Space Station',
-    spy: spy
-  };
+  if (!gameSettings.hasOwnProperty(gameCode)) {
+    // game isnt setup yet, so lets setup
+    const players = users[gameCode];
+    const spy = players[Math.floor(Math.random() * players.length)];
+    const locationData = locations[Math.floor(Math.random() * locations.length)];
+    // set location for this game session
+    gameSettings[gameCode] = gameSettings[gameCode] || {
+      location: locationData.location,
+      spy: spy
+    };
+    // question: would gameSetting every get too large? How to clean up?
 
-  users[gameCode].map((user) => {
-    user.role = user.token === spy.token ? 'Spy' : 'Astronaut';
-    return user
-  });
+    users[gameCode].map((user) => {
+      user.role = user.token === spy.token ? 'Spy' :
+        locationData.roles[Math.floor(Math.random() * locationData.roles.length)];
+      return user
+    });
+
+  }
 }
 
 export function getMyGameProfile(gameCode: string, user: User): IGameProfile {
@@ -59,6 +67,10 @@ export function getMyGameProfile(gameCode: string, user: User): IGameProfile {
     location: location,
     role: role
   }
+}
+
+export function getLocations(): Array<any> {
+  return locations.map(item=>item.location)
 }
 
 export function leaveAll(user: User) {

@@ -16,4 +16,4 @@ Client:
 
     $ cd client
     $ npm install
-    $ gatbsy develop --open
+    $ gatsby develop --open

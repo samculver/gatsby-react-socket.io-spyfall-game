@@ -44,7 +44,7 @@ class Lobby extends React.Component {
           Start
         </Button>
         <Button
-          onClick={() => navigate("/")}
+          onClick={this.disconnect}
           variant="outlined"
           color="primary"
           className={styles.button}
@@ -53,6 +53,11 @@ class Lobby extends React.Component {
         </Button>
       </Layout>
     )
+  }
+
+  disconnect = () => {
+    this.context.socket.emit("disconnect")
+    navigate("/")
   }
 
   userJoined = joiner => {

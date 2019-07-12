@@ -77,10 +77,10 @@ server.on('connection', socket => {
     server.to(socket.game).emit('game start');
   });
 
-  socket.on('get game profile', reply => {
+  socket.on('get game profile', (reply) => {
     if (!socket.user) return;
     if (!socket.game) return;
-    reply(Games.getMyGameProfile(socket.game, socket.user));
+    reply(Games.getMyGameProfile(socket.game, socket.user), Games.getLocations());
   });
 
   socket.on('disconnect', () => {

@@ -47,7 +47,7 @@ const Create = () => {
         Create
       </Button>
       <Button
-        onClick={() => navigate("/lobby/")}
+        onClick={() => navigate("/")}
         variant="outlined"
         color="primary"
         className={styles.button}
