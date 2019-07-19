@@ -61,5 +61,69 @@ export const locations = [
             'Curator',
             'Janitor'
         ]
+    },
+    {
+        location: 'Cabin',
+        roles: [
+            'Guest',
+            'Bear'
+        ]
+    },
+    {
+        location: 'Golf Course',
+        roles: [
+            'Caddie',
+            'Golf Pro'
+        ]
+    },
+    {
+        location: 'Movie Theatre',
+        roles: [
+            'Audience Member',
+            'Janitor'
+        ]
+    },
+    {
+        location: 'DMV',
+        roles: [
+            'Person Waiting',
+            'County Worker'
+        ]
+    },
+    {
+        location: 'Gadiator Arena',
+        roles: [
+            'Gladiator',
+            'Spectator'
+        ]
+    },
+    {
+        location: 'Fishing Derby',
+        roles: [
+            'Fisherman',
+            'Fish'
+        ]
+    },
+    {
+        location: 'Karate Dojo',
+        roles: [
+            'Sensei',
+            'Pupil'
+        ]
+    },
+    {
+        location: 'Wedding',
+        roles: [
+            'Bride',
+            'Groom',
+            'Priest'
+        ]
+    },
+    {
+        location: 'Drag Race Track',
+        roles: [
+            'Driver',
+            'Mechanic'
+        ]
     }
 ];
