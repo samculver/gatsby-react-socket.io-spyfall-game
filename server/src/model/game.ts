@@ -2,6 +2,7 @@ import { Model } from "../model";
 import { User } from "./user";
 import { locations } from "./locations";
 import shortid from 'shortid';
+var randomize = require('randomatic');
 
 export interface Game {
   code: string;
@@ -19,7 +20,7 @@ interface IGameProfile {
 
 export function createGame(): Game {
   const game = {
-    code: shortid.generate()
+    code: randomize('a', 5)
   }
   return game;
 }
