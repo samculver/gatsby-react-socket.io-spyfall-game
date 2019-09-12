@@ -7,7 +7,7 @@ Demo: http://spyfall.surge.sh
 
 Server is deployed to AWS
 
-Client is hosted on Surge.sh
+Client is hosted on https://surge.sh/
 
 ## Run
 
