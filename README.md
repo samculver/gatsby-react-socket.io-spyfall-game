@@ -5,9 +5,9 @@ This project is working but not fully complete.
 
 Demo: http://spyfall.surge.sh
 
-Server is deployed to AWS
+Server is deployed to AWS on the free tier.
 
-Client is hosted on https://surge.sh/
+Client is hosted on https://surge.sh/ because Surge does not require SSL to communicate with the free tier AWS.
 
 ## Run
 
