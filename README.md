@@ -3,6 +3,8 @@ Creating a version of the Spyfall game using Gatsby and Socket.io
 
 This project is working but not fully complete.
 
+Demo: http://spyfall.surge.sh
+
 ## Run
 
 Server:
