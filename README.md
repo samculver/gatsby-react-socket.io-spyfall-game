@@ -1,5 +1,5 @@
 # spy-fall
-Creating a version of the multiplayer party game "Spyfall" using Gatsby and Socket.io
+Creating a version of the multiplayer party game "Spyfall" using Gatsby with React and Socket.io
 
 This project is working but not fully complete.
 
