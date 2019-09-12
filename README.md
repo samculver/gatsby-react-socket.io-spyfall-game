@@ -6,6 +6,7 @@ This project is working but not fully complete.
 Demo: http://spyfall.surge.sh
 
 Server is deployed to AWS
+
 Client is hosted on Surge.sh
 
 ## Run
