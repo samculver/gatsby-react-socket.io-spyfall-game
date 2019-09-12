@@ -1,7 +1,7 @@
 # spy-fall
 Creating a version of the Spyfall game using Gatsby and Socket.io
 
-This project is not complete and is not stable.
+This project is working but not fully complete.
 
 ## Run
 
