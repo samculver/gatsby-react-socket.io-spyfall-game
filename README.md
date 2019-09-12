@@ -1,9 +1,12 @@
 # spy-fall
-Creating a version of the Spyfall game using Gatsby and Socket.io
+Creating a version of the multiplayer party game "Spyfall" using Gatsby and Socket.io
 
 This project is working but not fully complete.
 
 Demo: http://spyfall.surge.sh
+
+Server is deployed to AWS
+Client is hosted on Surge.sh
 
 ## Run
 
