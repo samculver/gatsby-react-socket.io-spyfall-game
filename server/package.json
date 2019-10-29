@@ -17,7 +17,7 @@
   "keywords": [],
   "author": "",
   "dependencies": {
-    "lodash": "^4.17.10",
+    "lodash": "^4.17.13",
     "openid-client": "^2.1.0",
     "randomatic": "^3.1.1",
     "shortid": "^2.2.11",
